@@ -14,9 +14,7 @@ import urllib.request
 from urllib.request import Request, urlopen
 
 
-
-
-# Set the URL you want to webscrape from
+# Sets the target URL (Page of Nas' lyrics in this case)
 url = 'http://www.lyricsondemand.com/n/naslyrics/index.html'
 
 # Connect to the URL
@@ -25,9 +23,7 @@ response = requests.get(url)
 # Parse HTML and save to BeautifulSoup object¶
 soup = BeautifulSoup(response.text, "html.parser")
 
-#print(soup)
-
-
+#list of each URL suffix for unique lyrics page
 span = (soup.select('a[href*="lyrics.html"]'))
 
 
@@ -35,7 +31,6 @@ link = ""
 line_count = 1
 
 #Goes through each link and returns HTMl as plaintext
-
 for a in span:
     if (line_count <= 240):
         target = "http://www.lyricsondemand.com/n/naslyrics/" + a['href']
@@ -47,5 +42,5 @@ for a in span:
         soup2 = BeautifulSoup(webpage, "html.parser")
         lyrics = soup2.get_text()
         print(lyrics)
-        time.sleep(1)
+        time.sleep(1) #Ensures site isn't overrun with consecutive requests
     line_count += 1
