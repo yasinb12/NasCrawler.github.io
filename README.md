@@ -1,7 +1,7 @@
 # NasCrawler.github.io
 Repo for 200+ pages of training data (Nas' lyrics) for a text generation RNN
 
-*DISCLAIMER: Coarse Language*
+*DISCLAIMER: Coarse Language in Training Data*
 
 I got inspired by TensorFlow's Text Generation RNN tutorial. 
 The tutorial's default training data consisted of thousands of lines from Shakespeare's greatest works.
